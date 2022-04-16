@@ -10,7 +10,6 @@ const Pokemon = () => {
         baseExperience: "",
         abilities: [""],
     });
-    const [pokemonImage, setPokemonImage] = useState("pokamion aleatorio");
 
     const getPokamion = async () => {
         await fetch(url)
@@ -26,7 +25,6 @@ const Pokemon = () => {
                     (pokemon.abilities = abilities)))
                 );
                 console.log(pokemon);
-                setPokemonImage(front_default);
             });
     };
 
@@ -47,7 +45,8 @@ const Pokemon = () => {
         <div>
             <h1>Pokamions</h1>
             <button onClick={getPokamion}>Get Pokamion</button>
-            <img src={pokemonImage} alt="pokamion random" />
+            <p>{pokemon.id}</p>
+            <img src={pokemon.sprite} alt="pokamion random" />
         </div>
     );
 };
