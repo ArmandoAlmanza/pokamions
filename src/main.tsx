@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import HelloWorld from "./Components/HelloWorld/HelloWorld";
+import Pokemon from "./Components/Pokemons/Pokemons";
 
 import "./styles/app.scss";
 
@@ -14,7 +14,7 @@ root.render(
         <React.StrictMode>
             <Routes>
                 <Route path="/" element={<App />} />
-                <Route path="/expenses" element={<HelloWorld />} />
+                <Route path="/pokemon" element={<Pokemon />} />
 
                 {/* Path to no where */}
                 <Route
