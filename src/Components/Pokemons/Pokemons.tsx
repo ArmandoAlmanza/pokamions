@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 const Pokemon = () => {
-    const url = "https://pokeapi.co/api/v2/pokemon/pikachu/";
+    const [pokeName, setpokeName] = useState("");
+
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`;
 
     const [pokemon, setPokemon] = useState({
         id: 0,
@@ -23,10 +25,8 @@ const Pokemon = () => {
                     base_experience,
                 };
                 setPokemon({ ...pokemon, ...pokamion });
-                console.log(front_default);
                 console.log(pokemon);
             });
-            
     };
 
     /* const getHabilities = (habilities: [any]) => {
@@ -43,12 +43,22 @@ const Pokemon = () => {
     } */
 
     return (
-        <div>
+        <div className=" container">
             <h1>Pokamions</h1>
             <button onClick={getPokamion}>Get Pokamion</button>
-            <p>{pokemon.id}</p>
-            <h1>{pokemon.name}</h1>
-            <img src={pokemon.front_default} alt="pokamion random" />
+
+            <input
+                value={pokeName}
+                name="pokeName"
+                onChange={(e) => setpokeName(e.target.value)}
+            />
+
+            <div className="pokemon__container">
+                <p>The pokedex number is: {pokemon.id || "Id random"}</p>
+                <h1>{pokemon.name.toUpperCase() || "Pokemon Random"}</h1>
+                <img src={pokemon.front_default} alt="pokamion random" />
+                <p>The base xperience is: {pokemon.base_experience}</p>
+            </div>
         </div>
     );
 };
