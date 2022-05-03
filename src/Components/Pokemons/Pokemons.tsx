@@ -1,31 +1,32 @@
 import { useState } from "react";
 
 const Pokemon = () => {
-    const url = "https://pokeapi.co/api/v2/pokemon/umbreon/";
+    const url = "https://pokeapi.co/api/v2/pokemon/pikachu/";
 
     const [pokemon, setPokemon] = useState({
         id: 0,
         name: "",
-        sprite: "",
-        baseExperience: "",
-        abilities: [""],
+        front_default: "",
+        base_experience: "",
     });
 
     const getPokamion = async () => {
         await fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                const { name, abilities, sprites, id, base_experience } = data;
+                const { name, sprites, id, base_experience } = data;
                 const { front_default } = sprites;
-                setPokemon(
-                    ((pokemon.name = name),
-                    (pokemon.id = id),
-                    ((pokemon.sprite = front_default),
-                    (pokemon.baseExperience = base_experience),
-                    (pokemon.abilities = abilities)))
-                );
+                const pokamion = {
+                    id,
+                    name,
+                    front_default,
+                    base_experience,
+                };
+                setPokemon({ ...pokemon, ...pokamion });
+                console.log(front_default);
                 console.log(pokemon);
             });
+            
     };
 
     /* const getHabilities = (habilities: [any]) => {
@@ -46,7 +47,8 @@ const Pokemon = () => {
             <h1>Pokamions</h1>
             <button onClick={getPokamion}>Get Pokamion</button>
             <p>{pokemon.id}</p>
-            <img src={pokemon.sprite} alt="pokamion random" />
+            <h1>{pokemon.name}</h1>
+            <img src={pokemon.front_default} alt="pokamion random" />
         </div>
     );
 };

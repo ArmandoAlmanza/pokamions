@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
+import Header from "./Components/Header/Header";
 import Pokemon from "./Components/Pokemons/Pokemons";
 
 import "./styles/app.scss";
@@ -12,6 +13,7 @@ const root = createRoot(container!);
 root.render(
     <BrowserRouter>
         <React.StrictMode>
+            <Header />
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/pokemon" element={<Pokemon />} />
