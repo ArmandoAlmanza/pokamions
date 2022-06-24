@@ -1,7 +1,8 @@
 import { useState } from "react";
+import GetPokemon from "./GetPokemon";
 
 const Pokemon = () => {
-    const [pokeName, setpokeName] = useState("");
+    const [pokeName, setpokeName] = useState("umbreon");
 
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`;
 
@@ -41,23 +42,49 @@ const Pokemon = () => {
         const listItems = props.map((abi) => <li key={ability.length}>{abi}</li>);
         return <ul>{listItems}</ul>;
     } */
-
     return (
-        <div className=" container">
-            <h1>Pokamions</h1>
-            <button onClick={getPokamion}>Get Pokamion</button>
-
-            <input
-                value={pokeName}
-                name="pokeName"
-                onChange={(e) => setpokeName(e.target.value)}
-            />
+        <div className="content-center my-0 mx-auto p-6 max-w-xl container">
+            <h1 className="text-center text-4xl">
+                Get your <span className="text-red-400">Pokemon</span>
+            </h1>
+            <div className="px-3 flex content-center items-center flex-col justify-around mt-5 md:flex-row">
+                <GetPokemon
+                    onPokeChange={(poke: string) =>
+                        setpokeName(poke.toLocaleLowerCase())
+                    }
+                />
+                <button
+                    className="py-2 bg-transparent border-rose-600 border-2 hover:bg-red-300 text-lg px-6 my-3 transition-all rounded-xl"
+                    onClick={getPokamion}
+                >
+                    Get pokemon
+                </button>
+            </div>
 
             <div className="pokemon__container">
-                <p>The pokedex number is: {pokemon.id || "Id random"}</p>
-                <h1>{pokemon.name.toUpperCase() || "Pokemon Random"}</h1>
-                <img src={pokemon.front_default} alt="pokamion random" />
-                <p>The base xperience is: {pokemon.base_experience}</p>
+                {pokemon.name === "" ? (
+                    ""
+                ) : (
+                    <div>
+                        <h1 className="text-center text-4xl mb-3">
+                            {pokemon.name.toUpperCase() || ""}
+                        </h1>
+                        <p className="text-xl my-5 text-center">
+                            The pokedex number is:{" "}
+                            <span className="font-bold">
+                                {pokemon.id || ""}
+                            </span>
+                        </p>
+                        <p className="text-center text-lg">
+                            The base xperience is: {pokemon.base_experience}
+                        </p>
+                        <img
+                            className="mx-auto h-40"
+                            src={pokemon.front_default}
+                            alt="pokamion random"
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );

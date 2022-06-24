@@ -5,7 +5,7 @@ import App from "./App";
 import Header from "./Components/Header/Header";
 import Pokemon from "./Components/Pokemons/Pokemons";
 
-import "./styles/app.scss";
+import "./index.css";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
