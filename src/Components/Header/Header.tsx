@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header className="text-center p-4 flex justify-around items-center flex-col md:flex-row">
+        <header className="text-center p-4 flex justify-around items-center flex-col md:flex-row font-links">
             <div>
                 <h3 className="text-5xl">
                     Armi<span className="text-lt-red">Dex</span>

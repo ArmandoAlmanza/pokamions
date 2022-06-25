@@ -6,13 +6,18 @@ module.exports = {
         colors: {
             transparent: "transparent",
             current: "currentColor",
-            "white": "#ffffff",
-            "black": "#000000",
+            white: "#ffffff",
+            black: "#000000",
             "lt-red": "#f87171",
             "lt-gray": "#F9F9F9",
             "dk-red": "#f43f5e",
-            "purple": "#a78bfa"
-            
+            purple: "#a78bfa",
+            gray: "#D1D1D1",
+            body: "#F9F9F9",
+        },
+        fontFamily: {
+            links: ["Patrick Hand"],
+            body: ["Manrope"],
         },
     },
     plugins: [],
