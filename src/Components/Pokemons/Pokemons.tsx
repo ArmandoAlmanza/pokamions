@@ -54,7 +54,7 @@ const Pokemon = () => {
                     }
                 />
                 <button
-                    className="py-2 bg-transparent border-rose-600 border-2 hover:bg-red-300 text-lg px-6 my-3 transition-all rounded-xl"
+                    className="py-2 bg-transparent border-dk-red border-2 hover:bg-lt-red text-lg px-6 my-3 transition-all rounded-xl"
                     onClick={getPokamion}
                 >
                     Get pokemon
